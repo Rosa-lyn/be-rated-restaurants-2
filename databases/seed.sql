@@ -8,6 +8,9 @@ CREATE TABLE areas_schema (
     area_name VARCHAR(50)
 );
 
+INSERT INTO areas_schema (area_name)
+    VALUES ('Poynton'), ('Manchester City Centre');
+
 CREATE TABLE restaurants_schema (
     restaurant_id SERIAL PRIMARY KEY,
     restaurant_name VARCHAR(50),
