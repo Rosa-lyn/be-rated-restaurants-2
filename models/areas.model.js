@@ -7,4 +7,12 @@ const fetchAreas = () => {
   });
 };
 
-module.exports = { fetchAreas };
+const addArea = (areaName) => {
+  return client.query("INSERT INTO areas_schema (area_name) VALUES $1 RETURNING *;", areaName)
+    .then((area) => {
+    return area.rows
+  })
+
+}
+
+module.exports = { fetchAreas, addArea };

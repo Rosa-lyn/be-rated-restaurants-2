@@ -1,20 +1,18 @@
-const { fetchAreas } = require("../models/areas.model");
+const { fetchAreas, addArea} = require("../models/areas.model");
 
 const getAreas = (req, res) => {
-  //   console.log("you are in get areas");
   fetchAreas().then((areas) => {
     res.send({ total_areas: areas.length, areas });
   });
 };
 
-/*{
-  POST /api/areas
-{
-     area: {
-       area_id: 12,
-       name: 'your-posted-area-name'
-     }
+const postAreas = (req, res) => {
+  console.log(req.body, '< req body')
+  const areaName = req.body
+  console.log(areaName)
+  addArea(areaName).then((area) => {
+    res.status(201).send({area});
+  });
 }
-*/
 
-module.exports = { getAreas };
+module.exports = { getAreas, postAreas};
