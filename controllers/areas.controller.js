@@ -1,7 +1,7 @@
 const { fetchAreas } = require("../models/areas.model");
 
 const getAreas = (req, res) => {
-  console.log("you are in get areas");
+  //   console.log("you are in get areas");
   fetchAreas().then((areas) => {
     res.send({ total_areas: areas.length, areas });
   });
