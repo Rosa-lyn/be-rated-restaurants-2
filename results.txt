@@ -1,0 +1,26 @@
+DROP DATABASE
+CREATE DATABASE
+You are now connected to database "rated_restaurants" as user "rosalynland".
+CREATE TABLE
+INSERT 0 2
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+ area_id |       area_name        
+---------+------------------------
+       1 | Poynton
+       2 | Manchester City Centre
+(2 rows)
+
+ restaurant_id | restaurant_name | area_id | cuisine | website 
+---------------+-----------------+---------+---------+---------
+(0 rows)
+
+ comment_id | restaurant_id | body | created_at 
+------------+---------------+------+------------
+(0 rows)
+
+ rating_id | restaurant_id | rating | created_at 
+-----------+---------------+--------+------------
+(0 rows)
+

@@ -1,8 +1,20 @@
-const {fetchAreas} = require('../models/areas.model')
+const { fetchAreas } = require("../models/areas.model");
 
-const getAreas = () => {
-    console.log('you are in get areas')
-    fetchAreas()
+const getAreas = (req, res) => {
+  console.log("you are in get areas");
+  fetchAreas().then((areas) => {
+    res.send({ total_areas: areas.length, areas });
+  });
+};
+
+/*{
+  POST /api/areas
+{
+     area: {
+       area_id: 12,
+       name: 'your-posted-area-name'
+     }
 }
+*/
 
-module.exports = {getAreas}
+module.exports = { getAreas };

@@ -1,11 +1,11 @@
-const express = require('express')
-const apiRouter = require('./Routes/api.router')
-const app = express()
+const express = require("express");
+const apiRouter = require("./Routes/api.router");
+const app = express();
 
-app.listen (9090, () => {
-    console.log('App server is running')
-})
+app.use("/api", apiRouter);
 
-app.use('/api', apiRouter)
+// app.listen(9090, () => {
+//   console.log("App server is running");
+// });
 
-module.exports = app
+module.exports = app;
