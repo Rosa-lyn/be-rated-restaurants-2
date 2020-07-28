@@ -5,7 +5,7 @@ CREATE DATABASE rated_restaurants;
 
 CREATE TABLE areas_schema (
     area_id SERIAL PRIMARY KEY,
-    area_name VARCHAR(50)
+    area_name VARCHAR(50) 
 );
 
 INSERT INTO areas_schema (area_name)

@@ -8,12 +8,15 @@ const fetchAreas = () => {
 };
 
 const addArea = (areaName) => {
+  if (areaName === undefined) return Promise.reject({status:400, msg:"Invalid post body!"})
   return client
     .query("INSERT INTO areas_schema (area_name) VALUES ($1) RETURNING *;", [
       areaName,
     ])
-    .then((area) => {
-      return area.rows[0];
+    .then((data) => {
+      console.log(data.rows[0])
+      const area = data.rows[0]
+      return area;
     });
 };
 

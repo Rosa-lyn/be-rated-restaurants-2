@@ -10,8 +10,6 @@ describe("app", () => {
         .get("/aaslkdmlm/jkl")
         .expect(404)
         .then((res) => {
-          //   console.log(res.body);
-          //   expect(res.body.status).toBe(404);
           expect(res.body.msg).toBe("Path not found!");
         });
     });
@@ -30,7 +28,17 @@ describe("app", () => {
             expect(res.body.area.area_name).toEqual("Altrincham");
           });
       });
-      // test("POST: 400", () => {});
+      test("POST: 400 - invalid post body", () => {
+        return request(app)
+          .post("/api/areas")
+          .send({
+            areaName: "Altrincham",
+          })
+          .expect(400)
+          .then((res) => {
+            expect(res.body.msg).toBe("Invalid post body!");
+          });
+      });
     });
   });
 });
