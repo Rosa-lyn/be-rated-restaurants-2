@@ -8,11 +8,13 @@ const fetchAreas = () => {
 };
 
 const addArea = (areaName) => {
-  return client.query("INSERT INTO areas_schema (area_name) VALUES $1 RETURNING *;", areaName)
+  return client
+    .query("INSERT INTO areas_schema (area_name) VALUES ($1) RETURNING *;", [
+      areaName,
+    ])
     .then((area) => {
-    return area.rows
-  })
-
-}
+      return area.rows[0];
+    });
+};
 
 module.exports = { fetchAreas, addArea };

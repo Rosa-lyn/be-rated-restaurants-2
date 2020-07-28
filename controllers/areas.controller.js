@@ -1,4 +1,4 @@
-const { fetchAreas, addArea} = require("../models/areas.model");
+const { fetchAreas, addArea } = require("../models/areas.model");
 
 const getAreas = (req, res) => {
   fetchAreas().then((areas) => {
@@ -7,12 +7,10 @@ const getAreas = (req, res) => {
 };
 
 const postAreas = (req, res) => {
-  console.log(req.body, '< req body')
-  const areaName = req.body
-  console.log(areaName)
+  const areaName = req.body.area_name;
   addArea(areaName).then((area) => {
-    res.status(201).send({area});
+    res.status(201).send({ area });
   });
-}
+};
 
-module.exports = { getAreas, postAreas};
+module.exports = { getAreas, postAreas };
