@@ -39,6 +39,21 @@ describe("app", () => {
             expect(res.body.msg).toBe("Invalid post body!");
           });
       });
+      describe("/:area_id", () => {
+        describe("/restaurants", () => {
+          test("GET: 200 - returns a JSON object of restaurants in a given area", () => {
+            return request(app)
+              .get("/api/areas/2/restaurants")
+              .expect(200)
+              .then((res) => {
+                expect(res.body.restaurantsByArea.area_id).toBe(2);
+                expect(
+                  res.body.restaurantsByArea.restaurants.length
+                ).toBeGreaterThan(0);
+              });
+          });
+        });
+      });
     });
   });
 });

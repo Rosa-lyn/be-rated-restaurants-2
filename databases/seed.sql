@@ -19,6 +19,13 @@ CREATE TABLE restaurants_schema (
     website VARCHAR(100)
 );
 
+INSERT INTO restaurants_schema (restaurant_name, area_id, cuisine, website)
+VALUES
+    ('Pizza Express', 1, 'Italian', 'www.pizzaexpress.com'),
+    ('Turtle Bay', 2, 'Carribean', 'www.turtlebay.com'),
+    ('My Lahore', 2, 'Pakistani', 'www.my-lahore.com'),
+    ('Indian Tiffin Room', 2, 'Indian', 'www.indiantiffinroom.com');
+
 CREATE TABLE comments_schema (
     comment_id SERIAL PRIMARY KEY,
     restaurant_id INT REFERENCES restaurants_schema(restaurant_id),
@@ -37,3 +44,8 @@ SELECT * FROM areas_schema;
 SELECT * FROM restaurants_schema;
 SELECT * FROM comments_schema;
 SELECT * FROM ratings_schema;
+
+SELECT *
+FROM restaurants_schema
+INNER JOIN areas_schema
+ON restaurants_schema.area_id = areas_schema.area_id WHERE areas_schema.area_id = 2;
