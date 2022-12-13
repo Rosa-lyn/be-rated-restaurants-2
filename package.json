@@ -4,7 +4,7 @@
   "description": "## A micro [yelp](https://www.yelp.co.uk/c/manchester/restaurants) clone API using Express and SQL",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jest": "^26.1.0",
     "pg": "^8.3.0"
   },
